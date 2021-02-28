@@ -3,7 +3,7 @@
 🔮 Into Ledger
 -----------
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/leowzukw/into-ledger)](https://goreportcard.com/report/github.com/leowzukw/into-ledger)
+[![Go Report Card](https://goreportcard.com/badge/github.com/leowzukw/into-ledger)](https://goreportcard.com/report/github.com/leowzukw/into-ledger) [![Test](https://github.com/cljoly/into-ledger/actions/workflows/build.yml/badge.svg)](https://github.com/cljoly/into-ledger/actions/workflows/build.yml)
 
 </div>
 
