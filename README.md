@@ -33,8 +33,19 @@ This fork removes:
 Install
 -------
 
-`go get -v -u joly.pw/into-ledger`
+### Binaries
 
+If you understand the security implications, you may use the following to get a compiled binary:
+```
+curl -sf https://gobinaries.com/cljoly/into-ledger | sh
+```
+
+### Build it yourself
+
+A better option, security-wise, is to install the go toolchain and run
+```
+go get -u joly.pw/into-ledger
+```
 
 Help
 ----
