@@ -16,6 +16,11 @@ import (
 	yaml "gopkg.in/yaml.v2"
 )
 
+const dateIsoLedger = "2006/1/2"
+
+const SamePayeeAction = 999991.0
+const SameAmountAction = 999990.0
+
 func (p *parser) categorizeTxn(t *Txn, idx, total int) float64 {
 	clear()
 	printSummary(*t, idx, total)
@@ -39,14 +44,20 @@ func (p *parser) categorizeTxn(t *Txn, idx, total int) float64 {
 	for _, hit := range hits {
 		ks.AutoAssign(string(hit), "default")
 	}
-	res := p.printAndGetResult(ks, t)
-	if res != math.MaxFloat32 {
-		return res
-	}
 
-	clear()
-	printSummary(*t, idx, total)
-	return p.fuzzyAndGetResult(&existingAccounts, t)
+	res := p.printAndGetResult(ks, t)
+	switch res {
+	case math.MaxFloat32:
+		clear()
+		printSummary(*t, idx, total)
+		return p.fuzzyAndGetResult(&existingAccounts, t)
+	case SamePayeeAction, SameAmountAction:
+		execAction(res, t)
+		clear()
+		printSummary(*t, idx, total)
+		return p.categorizeTxn(t, idx, total)
+	}
+	return res
 }
 
 func (p *parser) classifyTxn(t *Txn) {
@@ -114,6 +125,10 @@ LOOP:
 			return 1.1
 		case ".quit":
 			return 999999.0
+		case ".show same amount":
+			return SameAmountAction
+		case ".show same payee":
+			return SamePayeeAction
 		case ".show all":
 			return math.MaxFloat32
 		}
@@ -323,4 +338,52 @@ func (p *parser) removeDuplicates(txns []Txn) []Txn {
 	}
 	fmt.Printf("\t%d duplicates found and ignored.\n\n", len(txns)-len(final))
 	return final
+}
+
+// TODO Move to UI file?
+
+// dateBeforeAfter returns two strings in a ledger friendly format, one
+// corresponding to a date before and another to a date after. This spans a bit
+// more than two months
+func dateBeforeAfter(date time.Time) (before, after string) {
+	before = date.AddDate(0, -1, -2).Format(dateIsoLedger)
+	after = date.AddDate(0, 1, 2).Format(dateIsoLedger)
+	return before, after
+}
+
+func execAction(action float64, t *Txn) {
+	clear()
+	switch action {
+	case SamePayeeAction:
+		showWithPayee(t)
+	case SameAmountAction:
+		showWithAmount(t)
+	default:
+		panic(fmt.Sprintln("unsupported action", action))
+	}
+
+	fmt.Println("Press any key")
+	r := make([]byte, 1)
+	_, err := os.Stdin.Read(r)
+	checkf(err, "Unable to read stdin")
+}
+
+func showWithPayee(t *Txn) {
+	before, after := dateBeforeAfter(t.Date)
+	ledgerCmd := []string{"ledger", "r", "-f", *journal,
+		"-b", before, "-e", after,
+		"@" + t.Desc,
+	}
+	fmt.Println(strings.Join(ledgerCmd, " "))
+	fmt.Println(runCommandRaw(ledgerCmd[0], ledgerCmd[1:]...))
+}
+
+func showWithAmount(t *Txn) {
+	before, after := dateBeforeAfter(t.Date)
+	ledgerCmd := []string{"ledger", "r", "-f", *journal,
+		"-b", before, "-e", after,
+		"--display", fmt.Sprintf("quantity(amount) == %f", t.Cur),
+	}
+	fmt.Println(strings.Join(ledgerCmd, " "))
+	fmt.Println(runCommandRaw(ledgerCmd[0], ledgerCmd[1:]...))
 }

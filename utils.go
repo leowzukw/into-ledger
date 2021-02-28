@@ -40,13 +40,19 @@ func oerr(msg string) {
 	fmt.Println()
 }
 
-// runCommand excute the given cmd and return the list of lines outputted on
-// stdout
-func runCommand(name string, arg ...string) []string {
+// runCommandRaw excute the given cmd and return stdout as a string
+func runCommandRaw(name string, arg ...string) string {
 	cmd := exec.Command(name, arg...)
 	out, err := cmd.Output()
 	checkf(err, "Error running `%v`: `%v`", name, arg)
-	return strings.Split(string(out), "\n")
+	return string(out)
+}
+
+// runCommand excute the given cmd and return the list of lines outputted on
+// stdout
+func runCommand(name string, arg ...string) []string {
+	out := runCommandRaw(name, arg...)
+	return strings.Split(out, "\n")
 }
 
 // Fzf holds parameters for github.com/junegunn/fzf
