@@ -174,8 +174,10 @@ func assignFor(opt string, cl bayesian.Class, keys map[rune]string) bool {
 func setDefaultMappings(ks *keys.Shortcuts) {
 	ks.BestEffortAssign('b', ".back", "default")
 	ks.BestEffortAssign('q', ".quit", "default")
-	ks.BestEffortAssign('a', ".show all", "default")
 	ks.BestEffortAssign('s', ".skip", "default")
+	ks.BestEffortAssign('m', ".show same amount", "default")
+	ks.BestEffortAssign('p', ".show same payee", "default")
+	ks.BestEffortAssign('a', ".show all", "default")
 }
 
 type kv struct {
