@@ -35,10 +35,7 @@ Install
 
 ### Binaries
 
-If you understand the security implications, you may use the following to get a compiled binary:
-```
-curl -sf https://gobinaries.com/cljoly/into-ledger | sh
-```
+If you understand the security implications, [grab a binary from the release page and run it](https://github.com/cljoly/into-ledger/releases/latest).
 
 ### Build it yourself
 
