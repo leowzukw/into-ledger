@@ -12,11 +12,23 @@ end_insert -->
 -----------
 <!-- end_remove -->
 
+<!-- insert
+{{< rawhtml >}}
+<div class="badges">
+{{< /rawhtml >}}
+
+{{< github_badge >}}
+end_insert -->
+
 [![Go Report Card](https://goreportcard.com/badge/github.com/cljoly/into-ledger)](https://goreportcard.com/report/github.com/cljoly/into-ledger) ![](https://img.shields.io/github/go-mod/go-version/cljoly/into-ledger) [![Test](https://github.com/cljoly/into-ledger/actions/workflows/build.yml/badge.svg)](https://github.com/cljoly/into-ledger/actions/workflows/build.yml)
 
-<!-- remove -->
+<!-- insert
+{{< rawhtml >}}
+end_insert -->
 </div>
-<!-- end_remove -->
+<!-- insert
+{{< /rawhtml >}}
+end_insert -->
 
 into-ledger helps categorization of CSV transactions and conversion into ledger format for consumption by [ledger-cli.org](http://ledger-cli.org/). It makes importing hundreds of transactions into ledger a breeze. I typically get close to a hundred transactions per account per month myself, which is why I wrote this tool.
 
@@ -146,12 +158,12 @@ Screenshots
 
 **Parse transactions from CSV, and show automatically picked categories to be reviewed.**
 
-![list of transactions](list.png)
+![list of transactions](https://raw.githubusercontent.com/cljoly/into-ledger/master/list.png)
 
 **Detect duplicates transactions in CSV, which are already present in ledger journal.**
 
-![duplicate detection](duplicates.png)
+![duplicate detection](https://raw.githubusercontent.com/cljoly/into-ledger/master/duplicates.png)
 
 **Categorize transaction using persistent and dynamic keyboard shortcuts.**
 
-![categorize transaction](txn.png)
+![categorize transaction](https://raw.githubusercontent.com/cljoly/into-ledger/master/txn.png)
