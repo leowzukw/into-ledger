@@ -1,11 +1,22 @@
+<!-- insert
+---
+title: 🔮 Into Ledger
+date: 2021-08-21T16:23:33
+gometa: "joly.pw/into-ledger git https://github.com/cljoly/into-ledger"
+---
+end_insert -->
+<!-- remove -->
 <div align="center">
 
 🔮 Into Ledger
 -----------
+<!-- end_remove -->
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/cljoly/into-ledger)](https://goreportcard.com/report/github.com/cljoly/into-ledger) ![](https://img.shields.io/github/go-mod/go-version/cljoly/into-ledger) [![Test](https://github.com/cljoly/into-ledger/actions/workflows/build.yml/badge.svg)](https://github.com/cljoly/into-ledger/actions/workflows/build.yml)
 
+<!-- remove -->
 </div>
+<!-- end_remove -->
 
 into-ledger helps categorization of CSV transactions and conversion into ledger format for consumption by [ledger-cli.org](http://ledger-cli.org/). It makes importing hundreds of transactions into ledger a breeze. I typically get close to a hundred transactions per account per month myself, which is why I wrote this tool.
 
