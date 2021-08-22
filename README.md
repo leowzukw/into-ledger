@@ -32,6 +32,8 @@ end_insert -->
 
 into-ledger helps categorization of CSV transactions and conversion into ledger format for consumption by [ledger-cli.org](http://ledger-cli.org/). It makes importing hundreds of transactions into ledger a breeze. I typically get close to a hundred transactions per account per month myself, which is why I wrote this tool.
 
+> This is a fork of [manishrjain/into-ledger](https://github.com/manishrjain/into-ledger)  (which appears to be unmaintained)
+
 Features
 ------
 
