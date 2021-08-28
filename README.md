@@ -1,8 +1,9 @@
 <!-- insert
 ---
-title: 🔮 Into Ledger
+title: Into Ledger
 date: 2021-08-21T16:23:33
 gometa: "joly.pw/into-ledger git https://github.com/cljoly/into-ledger"
+description: "🔮 AI-powered expenses classifier for ledger. The original project seems not to be maintained anymore, hence this fork to continue improving it."
 ---
 end_insert -->
 <!-- remove -->
