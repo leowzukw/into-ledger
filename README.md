@@ -25,7 +25,7 @@ end_insert -->
 {{< /rawhtml >}}
 end_insert -->
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/cljoly/into-ledger)](https://goreportcard.com/report/github.com/cljoly/into-ledger) ![](https://img.shields.io/github/go-mod/go-version/cljoly/into-ledger) [![Test](https://github.com/cljoly/into-ledger/actions/workflows/build.yml/badge.svg)](https://github.com/cljoly/into-ledger/actions/workflows/build.yml) [![GitHub last commit](https://img.shields.io/github/last-commit/cljoly/into-ledger)](https://github.com/cljoly/into-ledger/commits/master)
+[![Go Report Card](https://goreportcard.com/badge/github.com/cljoly/into-ledger)](https://goreportcard.com/report/github.com/cljoly/into-ledger) [![Test](https://github.com/cljoly/into-ledger/actions/workflows/build.yml/badge.svg)](https://github.com/cljoly/into-ledger/actions/workflows/build.yml) [![GitHub last commit](https://img.shields.io/github/last-commit/cljoly/into-ledger)](https://github.com/cljoly/into-ledger/commits/master)
 
 <!-- insert
 {{< rawhtml >}}
