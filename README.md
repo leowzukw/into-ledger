@@ -84,6 +84,8 @@ Usage of ./into-ledger:
     	Set currency if any.
   -conf string
     	Config directory to store various into-ledger configs in. (default "/home/mrjn/.into-ledger")
+  -comma string
+	Separator of fields in csv file
   -csv string
     	File path of CSV file containing new transactions.
   -d string
@@ -96,6 +98,8 @@ Usage of ./into-ledger:
     	Existing journal to learn from.
   -o string
     	Journal file to write to. (default "out.ldg")
+  -opt string
+	Extra option to pass to ledger commands
   -s int
     	Number of header lines in CSV to skip
 ```
