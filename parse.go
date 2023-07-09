@@ -146,6 +146,9 @@ func parseDate(col string) (time.Time, bool) {
 }
 
 func parseCurrency(col string) (float64, bool) {
+	//strip out any commas that are here.  
+	//Yes, this is English British centric, extend as needed
+	col = strings.Replace(col, ",", "", -1)
 	f, err := strconv.ParseFloat(col, 64)
 	return f, err == nil
 }
