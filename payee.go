@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 	"strings"
@@ -33,7 +32,7 @@ func (ps *PayeeSubstitutions) Persist(path string) {
 		log.Fatalf("marshal payee substitutions: %v", err)
 	}
 
-	if err := ioutil.WriteFile(path, data, 0644); err != nil {
+	if err := os.WriteFile(path, data, 0644); err != nil {
 		log.Fatalf("While writing payee substitutions to file '%v': %v", path, err)
 	}
 }
